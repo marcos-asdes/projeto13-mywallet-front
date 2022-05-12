@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 import axios from 'axios';
@@ -32,12 +32,12 @@ export default function SignIn() {
         } catch (error) {
             alert('Ocorreu um erro! Tente novamente mais tarde.');
             setIsLoading(false);
-            console.log(res.error);
+            console.log(error);
         }
     }
 
     return (
-        <FirstScreen>
+        <SignInPage>
             <Logo>MyWallet</Logo>
             <InputContainer> 
                 <Input type="email" placeholder="E-mail" value={email} disabled={isLoading} onChange={event => { setStateOnChange(event, setEmail) }}/>
@@ -49,11 +49,11 @@ export default function SignIn() {
             <SignUpContainer>
                     {isLoading ? "Checando informações..." : <Link to={"/signup"} >Primeira vez? Cadastre-se!</Link>}
             </SignUpContainer>
-        </FirstScreen>
+        </SignInPage>
     )
 }
 
-const FirstScreen = styled.main`
+const SignInPage = styled.main`
     & {
         width: 100%;
         height: 100%;
@@ -91,7 +91,7 @@ const InputContainer = styled.form`
     }
 `
 const Input = styled.input`
-    &{
+    & {
     width: 100%;
     height: 58px;
     font-size: 20px;
