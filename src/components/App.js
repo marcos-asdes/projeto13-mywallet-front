@@ -7,7 +7,7 @@ import UserContext from '../contexts/UserContext.js';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import Home from './Home';
-import Deposit from './Deposit.js';
+import Deposit from './Deposit';
 import Withdrawal from './Withdrawal';
 
 const GlobalStyle = createGlobalStyle`
